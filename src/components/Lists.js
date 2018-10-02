@@ -29,7 +29,7 @@ export const ButtonList = ({
     } else if (child.type.name === 'Submit') {
       return React.cloneElement(child, {
         isLastStep: activeStepIndex === totalSteps,
-        handleSubmit: () => handleSubmit()
+        handleSubmit
       });
     }
   });

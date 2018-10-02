@@ -26,7 +26,7 @@ export default class FormWizard extends Component {
     const children = React.Children.map(this.props.children, child => {
       if (child.type.name === 'StepList') {
         return React.cloneElement(child, {
-          activeStepIndex: this.state.activeStepIndex
+          activeStepIndex
         });
       } else if (child.type.name === 'ButtonList') {
         return React.cloneElement(child, {
@@ -45,6 +45,6 @@ export default class FormWizard extends Component {
       }
     });
 
-    return <form onSubmit={this.handleSubmit}>{children}</form>;
+    return <form>{children}</form>;
   }
 }
