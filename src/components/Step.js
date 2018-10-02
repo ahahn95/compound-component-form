@@ -10,24 +10,16 @@ export const Previous = ({ isPreviousActive, goToPreviousStep }) =>
     </button>
   ) : null;
 
-const Next = props => {
-  if (props.isNextActive) {
-    return (
-      <button onClick={() => props.goToNextStep()} color="green" size="large">
-        Next
-      </button>
-    );
-  }
-  return null;
-};
+export const Next = ({ isNextActive, goToNextStep }) =>
+  isNextActive ? (
+    <button onClick={() => goToNextStep()} color="green" size="large">
+      Next
+    </button>
+  ) : null;
 
-const Submit = props => {
-  if (props.isLastStep) {
-    return (
-      <button onClick={() => props.handleSubmit()} size="large">
-        Submit
-      </button>
-    );
-  }
-  return null;
-};
+export const Submit = ({ isLastStep, handleSubmit }) =>
+  isLastStep ? (
+    <button onClick={() => handleSubmit()} size="large">
+      Submit
+    </button>
+  ) : null;

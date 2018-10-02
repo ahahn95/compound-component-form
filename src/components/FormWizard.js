@@ -37,7 +37,8 @@ export default class FormWizard extends Component {
           },
           onNextStep: () => {
             this.setState({ activeStepIndex: activeStepIndex + 1 });
-          }
+          },
+          handleSubmit: () => this.handleSubmit()
         });
       } else {
         return child;
