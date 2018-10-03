@@ -2,20 +2,22 @@ import React from 'react';
 
 export const Name = () => (
   <React.Fragment>
-    <span>
+    suh
+    {/* <span>
       First Name
       <input type="text" name="firstname" />
     </span>
     <span>
       Last Name
       <input type="text" name="lastname" />
-    </span>
+    </span> */}
   </React.Fragment>
 );
 
 export const ContactInfo = () => (
   <React.Fragment>
-    <span>
+    dude
+    {/* <span>
       Street
       <input type="text" name="street" />
     </span>
@@ -30,15 +32,16 @@ export const ContactInfo = () => (
     <span>
       Zip
       <input type="text" name="zip" />
-    </span>
+    </span> */}
   </React.Fragment>
 );
 
 export const EmailInfo = () => (
   <React.Fragment>
-    <span>
+    last
+    {/* <span>
       Email Address
       <input type="text" name="email" />
-    </span>
+    </span> */}
   </React.Fragment>
 );

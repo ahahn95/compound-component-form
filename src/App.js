@@ -6,17 +6,6 @@ import { StepList, ButtonList } from 'components/Lists';
 import { Step, Previous, Next, Submit } from 'components/Step';
 
 export default class App extends Component {
-  state = { test: 1 };
-
-  testUpdateState = () => {
-    console.log('hi');
-    this.setState({ test: this.state.test + 1 });
-  };
-
-  componentWillUnmount() {
-    console.log('unmounted');
-  }
-
   render() {
     return (
       <div className="App">
@@ -33,7 +22,6 @@ export default class App extends Component {
             <Submit />
           </ButtonList>
         </FormWizard>
-        <button onClick={this.testUpdateState}>Test</button>
       </div>
     );
   }
