@@ -1,7 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
+
+const FormContext = createContext();
 
 export default class FormWizard extends Component {
-  state = { activeStepIndex: 0 };
+  state = { 
+    activeStepIndex: 0,
+    onPreviousStep: this.onPreviousStep,
+    onNextStep: this.onNextStep,
+    handleSubmit: this.handelSubmit
+  };
+
+  onPreviousStep() {
+      this.setState({ activeStepIndex: this.state.activeStepIndex - 1 })
+    }
+
+    onNextStep() {
+      this.setState({ activeStepIndex: this.state.activeStepIndex + 1 });
+    }
+
 
   getTotalSteps = children => {
     let totalSteps = 0;
@@ -13,7 +29,7 @@ export default class FormWizard extends Component {
     this.setState({ totalSteps });
   };
 
-  handleSubmit = () => {
+  handleSubmit() {
     alert('Form Submitted!');
   };
 
@@ -22,29 +38,11 @@ export default class FormWizard extends Component {
   }
 
   render() {
-    const { activeStepIndex, totalSteps } = this.state;
-    const children = React.Children.map(this.props.children, child => {
-      if (child.type.name === 'StepList') {
-        return React.cloneElement(child, {
-          activeStepIndex
-        });
-      } else if (child.type.name === 'ButtonList') {
-        return React.cloneElement(child, {
-          activeStepIndex,
-          totalSteps,
-          onPreviousStep: () => {
-            this.setState({ activeStepIndex: activeStepIndex - 1 });
-          },
-          onNextStep: () => {
-            this.setState({ activeStepIndex: activeStepIndex + 1 });
-          },
-          handleSubmit: () => this.handleSubmit()
-        });
-      } else {
-        return child;
-      }
-    });
+    const {children} = this.props;
 
-    return <form>{children}</form>;
+    return (
+    <FormContext.Provider value={this.state}>
+      {children}
+    </FormContext.Provider>)
   }
 }
