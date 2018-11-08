@@ -10,7 +10,7 @@ export default class FormWizard extends Component {
     handleSubmit: this.handelSubmit
   };
 
-  onPreviousStep() {
+  onPreviousStep() 3f{
       this.setState({ activeStepIndex: this.state.activeStepIndex - 1 })
     }
 
