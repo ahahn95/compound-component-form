@@ -5,21 +5,21 @@ export const Step = ({ isActive, render }) =>
 
 export const Previous = ({ isPreviousActive, goToPreviousStep }) =>
   isPreviousActive ? (
-    <button onClick={() => goToPreviousStep()} color="red" size="large">
+    <button type="button" onClick={() => goToPreviousStep()} color="red" size="large">
       Previous
     </button>
   ) : null;
 
 export const Next = ({ isNextActive, goToNextStep }) =>
   isNextActive ? (
-    <button onClick={() => goToNextStep()} color="green" size="large">
+    <button type="button" onClick={() => goToNextStep()} color="green" size="large">
       Next
     </button>
   ) : null;
 
 export const Submit = ({ isLastStep, handleSubmit }) =>
   isLastStep ? (
-    <button onClick={() => handleSubmit()} size="large">
+    <button type="submit" onClick={() => handleSubmit()} size="large">
       Submit
     </button>
   ) : null;
