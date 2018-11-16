@@ -3,7 +3,7 @@ import { FormConsumer } from "./FormWizard";
 
 export const StepList = ({ children }) => (
   <FormConsumer>
-    {({ activeStepIndex }) =>
+    {({ activeStepIndex, updateFormField }) =>
       React.Children.map(children, (child, index) =>
         React.cloneElement(child, {
           isActive: index === activeStepIndex
@@ -15,14 +15,8 @@ export const StepList = ({ children }) => (
 
 export const ButtonList = ({ children }) => (
   <FormConsumer>
-    {({
-      activeStepIndex,
-      totalSteps,
-      onPreviousStep,
-      onNextStep,
-      handleSubmit
-    }) =>
-      React.Children.map(children, (child, index) => {
+    {({ activeStepIndex, totalSteps, onPreviousStep, onNextStep }) =>
+      React.Children.map(children, child => {
         if (child.type.name === "Previous") {
           return React.cloneElement(child, {
             isPreviousActive: activeStepIndex > 0,
@@ -35,8 +29,7 @@ export const ButtonList = ({ children }) => (
           });
         } else if (child.type.name === "Submit") {
           return React.cloneElement(child, {
-            isLastStep: activeStepIndex === totalSteps,
-            handleSubmit
+            isLastStep: activeStepIndex === totalSteps
           });
         }
       })

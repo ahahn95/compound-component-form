@@ -1,44 +1,31 @@
-import React from 'react';
+import React from "react";
+import { FormConsumer } from "./FormWizard";
+
+const createField = (text, name) => (
+  <FormConsumer>
+    {({ updateFormField }) => (
+      <span>
+        {text}
+        <input type="text" name={name} onChange={e => updateFormField(e)} />
+      </span>
+    )}
+  </FormConsumer>
+);
 
 export const Name = () => (
-  <React.Fragment>
-    <span>
-      First Name
-      <input type="text" name="firstname" />
-    </span>
-    <span>
-      Last Name
-      <input type="text" name="lastname" />
-    </span>
-  </React.Fragment>
+  <>
+    {createField("First Name", "firstname")}
+    {createField("Last Name", "lastname")}
+  </>
 );
 
 export const ContactInfo = () => (
-  <React.Fragment>
-    <span>
-      Street
-      <input type="text" name="street" />
-    </span>
-    <span>
-      City
-      <input type="text" name="city" />
-    </span>
-    <span>
-      State
-      <input type="text" name="state" />
-    </span>
-    <span>
-      Zip
-      <input type="text" name="zip" />
-    </span>
-  </React.Fragment>
+  <>
+    {createField("Street", "street")}
+    {createField("City", "city")}
+    {createField("State", "state")}
+    {createField("Zip", "zip")}
+  </>
 );
 
-export const EmailInfo = () => (
-  <React.Fragment>
-    <span>
-      Email Address
-      <input type="text" name="email" />
-    </span>
-  </React.Fragment>
-);
+export const EmailInfo = () => createField("Email Address", "email");

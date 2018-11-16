@@ -27,7 +27,7 @@ export const Next = ({ isNextActive, goToNextStep }) =>
     </button>
   ) : null;
 
-export const Submit = ({ isLastStep, handleSubmit }) =>
+export const Submit = ({ isLastStep }) =>
   isLastStep ? (
     <button type="submit" size="large">
       Submit

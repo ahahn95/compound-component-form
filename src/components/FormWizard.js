@@ -9,7 +9,16 @@ export default class FormWizard extends Component {
       activeStepIndex: 0,
       onPreviousStep: this.onPreviousStep,
       onNextStep: this.onNextStep,
-      handleSubmit: this.handleSubmit
+      updateFormField: this.updateFormField,
+      formData: {
+        firstname: "",
+        lastname: "",
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        email: ""
+      }
     };
 
     this.onPreviousStep = this.onPreviousStep.bind(this);
@@ -37,7 +46,17 @@ export default class FormWizard extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(event.target[0].value);
+    alert("Form Submitted!");
+    console.log(this.state.formData);
+  };
+
+  updateFormField = event => {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        [event.target.name]: event.target.value
+      }
+    });
   };
 
   componentDidMount() {
