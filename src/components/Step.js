@@ -1,7 +1,6 @@
 import React from "react";
 
-export const Step = ({ isActive, render }) =>
-  isActive ? <>{render()}</> : null;
+export const Step = ({ isActive, render }) => (isActive ? render() : null);
 
 export const Previous = ({ isPreviousActive, goToPreviousStep }) =>
   isPreviousActive ? (
