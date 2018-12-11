@@ -3,7 +3,7 @@ import { FormConsumer } from "./FormWizard";
 
 export const StepList = ({ children }) => (
   <FormConsumer>
-    {({ activeStepIndex, updateFormField }) =>
+    {({ activeStepIndex }) =>
       React.Children.map(children, (child, index) =>
         React.cloneElement(child, {
           isActive: index === activeStepIndex

@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Step = ({ isActive, render }) =>
-  isActive ? <React.Fragment>{render()}</React.Fragment> : null;
+  isActive ? <>{render()}</> : null;
 
 export const Previous = ({ isPreviousActive, goToPreviousStep }) =>
   isPreviousActive ? (
